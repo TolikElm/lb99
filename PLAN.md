@@ -88,10 +88,10 @@ Die tatsächlich vergebenen Punkte hängen davon ab, wie nah am Kreismittelpunkt
 
 ## 5. Implementierungs-Schritte
 
-1. [ ] **Schritt 1:** Grundgerüst & Fenstererstellung mit Pygame (`main.py`).
-2. [ ] **Schritt 2:** Ballon-Modell (`balloon.py`) mit 5 Größen, Einblenden von unten, 50%-Klick-Logik und Aufstiegsbewegung.
-3. [ ] **Schritt 3:** Maus-Klick-Erkennung, Abstands- & Präzisionsberechnung (100% bis 10%).
-4. [ ] **Schritt 4:** Partikeleffekte & schwebende Punkteanzeigen (`effects.py`).
-5. [ ] **Schritt 5:** Prozedurale Soundeffekte (`sound.py`).
-6. [ ] **Schritt 6:** HUD, Spawner (genau 99 Ballons), Spielende-Zustände (Game Over & Sieg).
-7. [ ] **Schritt 7:** Feinschliff, Balancing (Aufstiegsgeschwindigkeit, Spawn-Abstände) & Test.
+1. [x] **Schritt 1:** Grundgerüst & Fenstererstellung mit Pygame (`main.py`).
+2. [x] **Schritt 2:** Ballon-Modell (`balloon.py`) mit 5 Größen, Einblenden von unten, 50%-Klick-Logik und Aufstiegsbewegung.
+3. [x] **Schritt 3:** Maus-Klick-Erkennung, Abstands- & Präzisionsberechnung (100% bis 10%).
+4. [x] **Schritt 4:** Partikeleffekte & schwebende Punkteanzeigen (`effects.py`).
+5. [x] **Schritt 5:** Prozedurale Soundeffekte (`sound.py`).
+6. [x] **Schritt 6:** HUD, Spawner (genau 99 Ballons), Spielende-Zustände (Game Over & Sieg).
+7. [x] **Schritt 7:** Feinschliff, Balancing (Aufstiegsgeschwindigkeit, Spawn-Abstände) & Test.
