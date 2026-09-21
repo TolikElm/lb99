@@ -5,6 +5,7 @@ Ein Geschicklichkeitsspiel in Pygame.
 
 import sys
 import time
+import math
 import random
 import pygame
 
