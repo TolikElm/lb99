@@ -61,9 +61,21 @@ Treffer werden nach Genauigkeit bewertet – je näher der Klick am Mittelpunkt 
 
 | Eingabe | Aktion |
 | :--- | :--- |
-| **Linke Maustaste (LMB)** | Ballon anvisieren und zerplatzen / Starten / Neustart |
+| **Linke Maustaste (LMB)** | Ballon anvisieren und zerplatzen / Starten / Menüs bedienen |
+| **Tastatur (A-Z, 0-9)** | Spielernamen für Bestenliste eingeben (max. 10 Zeichen) |
+| **Taste `ENTER`** | Spielernamen bestätigen & Bestenliste anzeigen |
+| **Taste `H`** | Bestenliste / Hall of Fame anzeigen |
 | **Taste `R`** | Laufendes Spiel neustarten / Reset |
-| **Taste `ESC`** | Spiel beenden |
+| **Taste `ESC`** | Zurück zum Menü / Spiel beenden |
+
+---
+
+## 🏆 Highscores & Persistenz (`highscores.json`)
+
+* **Automatisches Speichern:** Ergebnisse werden dauerhaft in der lokalen Datei `highscores.json` gesichert.
+* **Tastatur-Namenseingabe:** Qualifiziert sich dein Ergebnis für die Top 10, kannst du deinen Namen direkt mit der Tastatur eingeben.
+* **Hall of Fame (`[H]`):** Zeigt die besten 10 Durchgänge aller Zeiten mit Rang, Medaillen (🥇, 🥈, 🥉), Punkten, geplatzten Ballons, Treffsicherheit und Datum.
+* **Lebenszeit-Statistiken:** Zählt über alle Runden hinweg die gespielten Spiele, Siege und die Gesamtzahl aller zerplatzten Ballons.
 
 ---
 
@@ -108,7 +120,9 @@ LB99/
 ├── PLAN.md              # Ursprüngliches Konzept & Spezifikationsplan
 ├── README.md            # Projektdokumentation & Anleitung
 ├── requirements.txt     # Python-Abhängigkeiten (pygame)
-├── main.py              # Hauptspielschleife, State-Management & HUD
+├── main.py              # Hauptspielschleife, State-Management, Screens & HUD
+├── score_manager.py     # Highscore-Verwaltung, JSON-Persistenz & Lifetime-Stats
+├── highscores.json      # Gespeicherte Top-10-Bestenliste & Statistiken
 ├── balloon.py           # Ballon-Klasse (Physik, 50%-Regel, Alpha-Fading, Klickprüfung)
 ├── effects.py           # Visuelle Partikeleffekte & schwebende Punkteanzeigen
 └── sound.py             # Prozeduraler Sound-Synthesizer via pygame.mixer
@@ -119,7 +133,8 @@ LB99/
 ## 📊 Spielendstände & Statistiken
 
 Nach Rundenende (Sieg oder Sudden Death) erhältst du eine Zusammenfassung mit:
-* Erreichten Gesamtpunkten
+* Erreichten Gesamtpunkten und Allzeit-Rekord-Vergleich
 * Anzahl der zerplatzten Ballons
 * Durchschnittlicher Treffgenauigkeit in Prozent
 * Gesamtzahl der Klicks
+

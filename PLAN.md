@@ -81,6 +81,8 @@ Die tatsächlich vergebenen Punkte hängen davon ab, wie nah am Kreismittelpunkt
   ├── balloon.py           # Ballon-Klasse (Physik, Zeichnen, 50%-Logik, Alpha)
   ├── effects.py           # Partikel & aufsteigende Punkte-Texte
   ├── sound.py             # Prozedurale Soundgenerierung
+  ├── score_manager.py     # Highscore-Verwaltung & JSON-Persistenz
+  ├── highscores.json      # Gespeicherte Bestenliste & Lifetime-Statistiken
   └── requirements.txt     # Abhängigkeiten (pygame)
   ```
 
@@ -95,3 +97,4 @@ Die tatsächlich vergebenen Punkte hängen davon ab, wie nah am Kreismittelpunkt
 5. [x] **Schritt 5:** Prozedurale Soundeffekte (`sound.py`).
 6. [x] **Schritt 6:** HUD, Spawner (genau 99 Ballons), Spielende-Zustände (Game Over & Sieg).
 7. [x] **Schritt 7:** Feinschliff, Balancing (Aufstiegsgeschwindigkeit, Spawn-Abstände) & Test.
+8. [x] **Schritt 8:** Dauerhafte Speicherung der Ergebnisse (`highscores.json`), Highscore-Manager (`score_manager.py`), Tastatur-Namenseingabe und Bestenlisten-Bildschirm (Hall of Fame, Taste [H]).
