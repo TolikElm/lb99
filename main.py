@@ -49,7 +49,7 @@ TOTAL_BALLOONS = 99
 class Game:
     def __init__(self):
         pygame.init()
-        pygame.display.set_caption("99-Luftballons 🎈")
+        pygame.display.set_caption("99-Luftballons")
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
 
@@ -249,7 +249,7 @@ class Game:
 
         # Durchschnittliche Genauigkeit
         avg_acc = (self.accuracy_sum / self.balloons_popped * 100) if self.balloons_popped > 0 else 100.0
-        acc_surf = self.font_hud.render(f"PRÄZISION: {avg_acc:.0f}%", True, GREEN)
+        acc_surf = self.font_hud.render(f"Präzision: {avg_acc:.0f}%", True, GREEN)
         self.screen.blit(acc_surf, (SCREEN_WIDTH - acc_surf.get_width() - 20, 12))
 
         # Gefahren-Warnung an der oberen Kante
@@ -265,7 +265,7 @@ class Game:
         self.screen.fill(BG_COLOR)
 
         # Titel
-        title_surf = self.font_title.render("99 LUFTBALLONS 🎈", True, WHITE)
+        title_surf = self.font_title.render("99 Luftballons ", True, WHITE)
         title_rect = title_surf.get_rect(center=(SCREEN_WIDTH // 2, 85))
         self.screen.blit(title_surf, title_rect)
 
@@ -275,7 +275,7 @@ class Game:
         # Highscore-Plakette
         all_time_high = self.score_manager.get_all_time_high()
         if all_time_high > 0:
-            high_text = f"🏆 REKORD: {all_time_high:.1f} Pkt."
+            high_text = f"Rekord: {all_time_high:.1f} Pkt."
             high_surf = self.font_hud.render(high_text, True, GOLD)
             high_rect = high_surf.get_rect(center=(SCREEN_WIDTH // 2, 165))
             pill_rect = high_rect.inflate(30, 8)
@@ -289,7 +289,7 @@ class Game:
         pygame.draw.rect(self.screen, CARD_BORDER, box_rect, width=2, border_radius=12)
 
         rules = [
-            "REGELN & SPIELABLAUF:",
+            "Regeln & Spielablauf:",
             "",
             "• Es steigen insgesamt genau 99 Luftballons von unten auf.",
             "• 50%-Regel: Klickbar erst, wenn mehr als die Hälfte sichtbar ist.",
@@ -299,14 +299,14 @@ class Game:
             "    1,00 cm (5 Pkt.)  •  1,25 cm (4 Pkt.)  •  1,50 cm (3 Pkt.)",
             "    1,75 cm (2 Pkt.)  •  2,00 cm (1 Pkt.)",
             "",
-            "• ACHTUNG: Erreicht ein einziger Ballon die Oberkante, ist das Spiel vorbei!",
+            "Achtung: kein Ballon darf die Oberkante berühren!",
         ]
 
         y_offset = 212
         for line in rules:
-            if line.startswith("REGELN") or line.startswith("• ACHTUNG"):
-                color = RED if line.startswith("• ACHTUNG") else GOLD
-                font = self.font_heading if line.startswith("REGELN") else self.font_main
+            if line.startswith("Regeln") or line.startswith("Achtung"):
+                color = RED if line.startswith("Achtung") else GOLD
+                font = self.font_heading if line.startswith("Regeln") else self.font_main
             else:
                 color = WHITE
                 font = self.font_main
@@ -317,7 +317,7 @@ class Game:
         # Start- & Highscore-Aufforderung
         pulse = (math.sin(time.time() * 4) + 1) / 2
         pulse_color = (int(200 + 55 * pulse), int(200 + 55 * pulse), 255)
-        start_surf = self.font_heading.render(">> KLICKE ZUM STARTEN <<", True, pulse_color)
+        start_surf = self.font_heading.render(">> Klicke zum starten <<", True, pulse_color)
         self.screen.blit(start_surf, start_surf.get_rect(center=(SCREEN_WIDTH // 2, 595)))
 
         sub_nav = self.font_main.render("Drücke [H] für Bestenliste / Hall of Fame", True, GOLD)
@@ -330,12 +330,12 @@ class Game:
         self.screen.blit(overlay, (0, 0))
 
         # Titel & Beglückwünschung
-        title_text = "HERVORRAGEND! 🎉" if self.is_victory else "NEUER HIGHSCORE! 🏆"
+        title_text = "Hervorragend! " if self.is_victory else "Neuer Highscore!"
         title_color = GREEN if self.is_victory else GOLD
         title_surf = self.font_title.render(title_text, True, title_color)
         self.screen.blit(title_surf, title_surf.get_rect(center=(SCREEN_WIDTH // 2, 110)))
 
-        sub_surf = self.font_heading.render("Trage deinen Namen in die Bestenliste ein:", True, WHITE)
+        sub_surf = self.font_heading.render("Trage deinen Namen in die Liste ein:", True, WHITE)
         self.screen.blit(sub_surf, sub_surf.get_rect(center=(SCREEN_WIDTH // 2, 160)))
 
         # Statistik-Box
@@ -383,7 +383,7 @@ class Game:
         self.screen.fill(BG_COLOR)
 
         # Titel
-        title_surf = self.font_title.render("🏆 HALL OF FAME 🎈", True, GOLD)
+        title_surf = self.font_title.render("Hall of Fame", True, GOLD)
         self.screen.blit(title_surf, title_surf.get_rect(center=(SCREEN_WIDTH // 2, 50)))
 
         sub_surf = self.font_main.render("Die 10 besten Durchgänge aller Zeiten", True, (180, 190, 210))
@@ -396,12 +396,12 @@ class Game:
 
         # Tabellen-Kopfzeile
         headers = [
-            ("RANG", box.x + 20),
-            ("SPIELER", box.x + 95),
-            ("PUNKTE", box.x + 260),
-            ("BALLONS", box.x + 375),
-            ("PRÄZISION", box.x + 480),
-            ("DATUM", box.x + 580),
+            ("Rang", box.x + 20),
+            ("Name", box.x + 95),
+            ("Punkte", box.x + 260),
+            ("Ballons", box.x + 375),
+            ("Präz.", box.x + 480),
+            ("Datum", box.x + 580),
         ]
         for header, hx in headers:
             h_surf = self.font_hud.render(header, True, (160, 175, 200))
